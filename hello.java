@@ -8,7 +8,7 @@ import static java.lang.System.*;
 
 import dev.langchain4j.model.openai.*;
 
-public class hello {
+class hello {
 
     static final String OPENAI_API_KEY = getenv("OPENAI_API_KEY");
 
