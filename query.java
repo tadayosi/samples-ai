@@ -8,18 +8,25 @@ import static java.lang.System.*;
 
 import dev.langchain4j.model.openai.*;
 
-public class hello {
+public class query {
 
     static final String OPENAI_API_KEY = getenv("OPENAI_API_KEY");
 
     public static void main(String... args) {
+        if (args.length < 1) {
+            out.println("Usage:");
+            out.println("  jbang query.java [prompt]");
+            return;
+        }
+
         if (OPENAI_API_KEY == null) {
             err.println("Provide OPENAI_API_KEY as environment variable");
             return;
         }
 
+        var prompt = args[0];
         var model = OpenAiChatModel.withApiKey(OPENAI_API_KEY);
-        var answer = model.generate("Say Hello");
+        var answer = model.generate(prompt);
         out.println(answer);
     }
 }
