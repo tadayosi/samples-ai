@@ -1,1 +1,1 @@
-# samples-langchain4j
+# Java AI Samples
