@@ -10,6 +10,7 @@ import ai.djl.*;
 import ai.djl.modality.*;
 import ai.djl.modality.cv.*;
 import ai.djl.repository.zoo.*;
+import ai.djl.training.util.*;
 
 public class mlp {
 
@@ -19,11 +20,13 @@ public class mlp {
                 .optApplication(Application.CV.IMAGE_CLASSIFICATION)
                 .setTypes(Image.class, Classifications.class)
                 .optArtifactId("mlp")
+                .optProgress(new ProgressBar())
                 .build();
         var model = criteria.loadModel();
         try (var predictor = model.newPredictor()) {
             var classifications = predictor.predict(input);
             out.println(classifications);
+            out.println("Answer = %s".formatted(classifications.best().getClassName()));
         }
     }
 }
