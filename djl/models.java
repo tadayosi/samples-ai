@@ -8,6 +8,7 @@
 //DEPS org.slf4j:slf4j-simple:1.7.36
 
 import static java.lang.System.*;
+import java.util.*;
 
 import ai.djl.*;
 import ai.djl.modality.*;
@@ -18,8 +19,12 @@ import ai.djl.training.util.*;
 public class models {
 
     public static void main(String... args) throws Exception {
+        var application = Arrays.stream(args).findFirst().map(Application::of);
         var models = ModelZoo.listModels();
         models.forEach((app, artifacts) -> {
+            if (application.isPresent() && !application.get().equals(app)) {
+                return;
+            }
             out.println(app);
             artifacts.forEach(a -> out.println("  - " + a));
         });
