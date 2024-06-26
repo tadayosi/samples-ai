@@ -22,9 +22,8 @@ public class models {
         var application = Arrays.stream(args).findFirst().map(Application::of);
         var models = ModelZoo.listModels();
         models.forEach((app, artifacts) -> {
-            if (application.isPresent() && !application.get().equals(app)) {
-                return;
-            }
+            if (application.isPresent() && !application.get().equals(app)) return;
+
             out.println(app);
             artifacts.forEach(a -> out.println("  - " + a));
         });
