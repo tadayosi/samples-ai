@@ -8,8 +8,6 @@
 import static java.lang.System.*;
 
 import ai.djl.*;
-import ai.djl.modality.*;
-import ai.djl.modality.cv.*;
 import ai.djl.ndarray.*;
 import ai.djl.repository.zoo.*;
 import ai.djl.training.util.*;
