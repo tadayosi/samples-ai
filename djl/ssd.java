@@ -17,7 +17,7 @@ import ai.djl.training.util.*;
 
 public class ssd {
 
-    static final String DIR = "data/objects";
+    static final String DIR = "data/images";
 
     public static void main(String... args) throws Exception {
         var criteria = Criteria.builder()
