@@ -7,14 +7,15 @@
 //DEPS ai.djl.mxnet:mxnet-model-zoo
 //DEPS org.slf4j:slf4j-simple:1.7.36
 
-import static java.lang.System.*;
-import java.util.*;
+import static java.lang.System.out;
 
-import ai.djl.*;
-import ai.djl.modality.*;
-import ai.djl.modality.cv.*;
-import ai.djl.repository.zoo.*;
-import ai.djl.training.util.*;
+import java.util.Arrays;
+import java.util.function.Function;
+
+import ai.djl.Application;
+import ai.djl.repository.Artifact;
+import ai.djl.repository.zoo.ModelZoo;
+import ai.djl.util.JsonUtils;
 
 public class models {
 
@@ -25,7 +26,13 @@ public class models {
             if (application.isPresent() && !application.get().equals(app)) return;
 
             out.println(app);
-            artifacts.forEach(a -> out.println("  - " + a));
+            Function<Artifact, String> artifactId = a -> "%s:%s:%s".formatted(
+                    a.getMetadata().getGroupId(),
+                    a.getMetadata().getArtifactId(),
+                    a.getVersion());
+            Function<Artifact, String> props = a -> JsonUtils.GSON.toJson(a.getProperties());
+            Function<Artifact, String> toRow = a -> "| | `%s` | %s".formatted(artifactId.apply(a), props.apply(a));
+            artifacts.forEach(a -> out.println(toRow.apply(a)));
         });
     }
 }
