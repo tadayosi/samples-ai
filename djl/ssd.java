@@ -1,9 +1,9 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
-//DEPS ai.djl:bom:0.28.0@pom
+//DEPS ai.djl:bom:0.29.0@pom
 //DEPS ai.djl:api
 //DEPS ai.djl.pytorch:pytorch-model-zoo
 //DEPS ai.djl.pytorch:pytorch-engine
-//DEPS org.slf4j:slf4j-simple:1.7.36
+//DEPS org.slf4j:slf4j-simple:2.0.13
 
 import static java.lang.System.*;
 import java.nio.file.*;
