@@ -24,8 +24,8 @@ public class word_embedding {
         var model = criteria.loadModel();
 
         var input = "test";
-        try (var predictor = model.newPredictor()) {
-            var ndlist = predictor.predict(input);
+        try (var predictor = model.newPredictor();
+             var ndlist = predictor.predict(input)) {
             out.println(ndlist);
         }
     }
