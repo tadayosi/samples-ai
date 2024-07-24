@@ -20,6 +20,10 @@ public class extjwnl {
 
         var dic = Dictionary.getDefaultResourceInstance();
         var word = dic.getIndexWord(POS.NOUN, args[0]);
+        if (word == null) {
+            out.println("Word not found: " + args[0]);
+            return;
+        }
         var tree = PointerUtils.getHypernymTree(word.getSenses().get(0));
         out.println("Word: " + word.getLemma());
         tree.toList().forEach(hypernyms -> {
