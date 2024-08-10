@@ -14,7 +14,6 @@ print("============================================================")
 
 # inputs = np.random.randn(1, 1, 28, 28).astype(np.float32)
 inputs = numpy_helper.to_array(read_proto(input))
-print(f">>> {inputs.shape}")
 results = sess.run(None, {"Input3": inputs})[0][0]
 print("Output:")
 print("------------------------------")
