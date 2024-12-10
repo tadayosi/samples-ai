@@ -3,5 +3,6 @@
 !.editorconfig
 
 data/
+build/
 output/
 __pycache__/
