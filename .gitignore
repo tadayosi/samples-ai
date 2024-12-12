@@ -6,3 +6,4 @@ data/
 build/
 output/
 __pycache__/
+*.egg-info/
