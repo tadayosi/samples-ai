@@ -8,6 +8,7 @@ version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
     "black",
+    "diffusers[torch]",
     "nltk",
     "numpy",
     "onnx",
@@ -16,6 +17,7 @@ dependencies = [
     "torch",
     "torchaudio",
     "torchvision",
+    "transformers",
 ]
 
 [tool.setuptools]
