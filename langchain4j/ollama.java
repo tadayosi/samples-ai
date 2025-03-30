@@ -1,12 +1,12 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
-//DEPS dev.langchain4j:langchain4j-bom:0.30.0@pom
+//DEPS dev.langchain4j:langchain4j-bom:1.0.0-beta2@pom
 //DEPS dev.langchain4j:langchain4j
 //DEPS dev.langchain4j:langchain4j-ollama
 //DEPS org.slf4j:slf4j-simple:2.0.12
 
-import static java.lang.System.*;
+import static java.lang.System.out;
 
-import dev.langchain4j.model.ollama.*;
+import dev.langchain4j.model.ollama.OllamaChatModel;
 
 class ollama {
 
