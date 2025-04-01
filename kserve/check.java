@@ -14,7 +14,6 @@ import static java.lang.System.out;
 
 import inference.GRPCInferenceServiceGrpc;
 import inference.GrpcPredictV2.ModelMetadataRequest;
-import inference.GrpcPredictV2.ModelMetadataRequest;
 import inference.GrpcPredictV2.ServerLiveRequest;
 import inference.GrpcPredictV2.ServerMetadataRequest;
 import inference.GrpcPredictV2.ServerReadyRequest;
