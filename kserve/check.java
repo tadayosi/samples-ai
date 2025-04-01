@@ -13,6 +13,8 @@
 import static java.lang.System.out;
 
 import inference.GRPCInferenceServiceGrpc;
+import inference.GrpcPredictV2.ModelMetadataRequest;
+import inference.GrpcPredictV2.ModelMetadataRequest;
 import inference.GrpcPredictV2.ServerLiveRequest;
 import inference.GrpcPredictV2.ServerMetadataRequest;
 import inference.GrpcPredictV2.ServerReadyRequest;
@@ -34,6 +36,8 @@ public class check {
             out.println(response2);
             var response3 = stub.serverMetadata(ServerMetadataRequest.newBuilder().build());
             out.println(response3);
+            var response4 = stub.modelMetadata(ModelMetadataRequest.newBuilder().setName("simple").build());
+            out.println(response4);
         } finally {
             channel.shutdown();
         }
