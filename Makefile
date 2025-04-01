@@ -17,3 +17,9 @@ kserve-protoc:
 	    --plugin=protoc-gen-grpc-java=./protoc-gen-grpc-java-$(GRPC_JAVA_VERSION)-$(OS)-$(ARCH).exe \
 	    --grpc-java_out=./kserve \
 	    ./kserve/grpc_predict_v2.proto
+
+mcp-cli:
+	npx @wong2/mcp-cli
+
+mcp-hello:
+	npx @wong2/mcp-cli jbang run mcp/hello_server.java
